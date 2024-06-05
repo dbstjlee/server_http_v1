@@ -17,11 +17,10 @@ public class SimpleHttpServer {
 			HttpServer httpServer = HttpServer.create(new InetSocketAddress(8080), 0);
 
 			// 서버에 대한 설정 필요
-
 			// 프로토콜 정의(경로, 핸들러 처리)
 			// 핸들러 처리를 정적 클래스로 사용
 			httpServer.createContext("/test", new MyTestHandler());
-			// /test 가 오면 new MyTestHandler() 시작하라는 명령
+			// '/test' 가 오면 new MyTestHandler()를 시작하라는 명령
 			httpServer.createContext("/hello", new HelloHandler());
 
 			// 서버 시작
@@ -119,9 +118,7 @@ public class SimpleHttpServer {
 			OutputStream os = exchange.getResponseBody();
 			os.write(response.getBytes());
 			os.close();
-
 		}
-
 	}// end of MyTestHandler
 
 	static class HelloHandler implements HttpHandler {
